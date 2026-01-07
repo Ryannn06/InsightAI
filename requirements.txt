@@ -6,3 +6,4 @@ uvicorn[standard]
 itsdangerous
 jinja2
 openai
+python-multipart
