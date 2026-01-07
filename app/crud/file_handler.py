@@ -4,7 +4,7 @@ import uuid
 import pandas as pd
 from collections import Counter
 from io import StringIO, BytesIO
-from app.utils.config import TEMP_DICT
+from app.utils.config import TEMP_DICT, RES_DICT, DURATION
 
 import calendar
 
@@ -39,14 +39,21 @@ async def read_validate_file(file: UploadFile) -> str:
     if df.dropna(how='all').shape[0] < 2:
         return None
     
-    preview_id = str(uuid.uuid4())
-    TEMP_DICT[preview_id] = df
+    # dataset exceeds limit
+    if df.shape[0] > 25000:
+        return None
 
-    return preview_id
+    # store data to server dict
+    clean_id = str(uuid.uuid4())
+
+    TEMP_DICT[clean_id] = df
+    return clean_id
+
 
 # load file
-def load_file(preview_id : str) -> pd.DataFrame:
-    return TEMP_DICT.get(preview_id)
+def load_file(clean_id : str) -> pd.DataFrame:
+    return TEMP_DICT.get(clean_id)
+
 
 # micro clean dataframe
 def micro_clean(df : pd.DataFrame) -> pd.DataFrame:
