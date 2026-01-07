@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %}Preview{% endblock %} {% set
+{% extends "base.html" %} {% block title %}Report{% endblock %} {% set
 show_navbar = true %} {% block content %}
 <div class="block-content">
     <div class="row gy-3 gx-5">
@@ -102,33 +102,28 @@ show_navbar = true %} {% block content %}
                 };
                 const chart = new google.visualization.Table(container);
                 chart.draw(dataTable, tableOptions);
-            } else if (type === 'heatmap'){
-                // 1. Heatmaps use the Table visualization
-                const chart = new google.visualization.Table(container);
+            } 
 
-                // 2. Create a formatter for the "Value" columns
-                // This creates a gradient from white (low) to deep purple (high)
+            else if (type === 'heatmap') {
+                const table = new google.visualization.Table(container);
+
+                // Create color gradient (White to Purple)
                 var formatter = new google.visualization.ColorFormat();
-
-                // Calculate range or use fixed (e.g., 0 to 100)
-                // Here we use a purple theme to match your 'corechart' colors
                 formatter.addGradientRange(null, null, 'black', '#FFFFFF', '#6F42C1');
 
-                // Apply the formatter to every numeric column (valueCols)
-                // Note: Column index 0 is usually the string label, so we start at 1
+                // Apply to all numeric columns
                 for (let i = 1; i <= valueCols.length; i++) {
                     formatter.format(dataTable, i);
                 }
 
-                const heatmapOptions = {
-                    allowHtml: true, // Required for color formatting
-                    showRowNumber: false,
+                table.draw(dataTable, {
+                    allowHtml: true,
                     width: '100%',
-                    alternatingRowStyle: false // False looks better for heatmaps
-                };
-
-                chart.draw(dataTable, heatmapOptions);
-            }else {
+                    alternatingRowStyle: false
+                });
+            }
+            
+            else {
                 // Core chart options (Bar, Line, Pie)
                 const coreOptions = {
                     colors: ['#6F42C1', '#007BFF', '#28A745'],

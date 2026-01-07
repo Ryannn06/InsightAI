@@ -42,8 +42,10 @@ def intent_prompt(df: pd.DataFrame) -> str:
     column = df.columns.tolist()
     datatype = df.dtypes.to_list()
 
-    column_info = list(zip(column, datatype))
-    column_text = "\n".join([f"- {col} ({dtype})" for col, dtype in column_info])
+    column_info = list(zip(column, datatype, df.nunique()))
+    column_text = "\n".join([f"- {col} ({dtype}, unique={n})" for col, dtype, n in column_info])
+
+    row, col = df.shape
 
     prompt=f"""
         Given a dataset schema, generate up to 5 distinct analytical topics.
@@ -68,6 +70,8 @@ def intent_prompt(df: pd.DataFrame) -> str:
         - Do NOT use the same column for group_by and measure
         - If a field is not needed, set it explicitly to null.
 
+        No. of rows: {row}
+        No. of columns: {col}
         Dataset columns:
         {column_text}
 
@@ -106,7 +110,7 @@ def insight_prompt(response_json: list) -> str:
         - "bar": rankings, comparisons, Top/Bottom.
         - "line": time trends only.
         - "pie": part-to-whole only.
-        - "heatmap": correlation only.
+        - "heatmap": correlation or matrix only.
 
         Return ONLY valid JSON:
         [
