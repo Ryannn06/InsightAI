@@ -1,20 +1,14 @@
 {% extends "base.html" %} {% block title %}Preview{% endblock %} {% set
 show_navbar = true %} {% block content %}
 <div class="block-content">
-    <div class="row py-3 gy-3 gx-5">
-        <div class="col-md-12">
-            <h6 class="text-muted"><i>Generated Report</i></h6>
-        </div>
+    <div class="row gy-3 gx-5">
         <div class="col-md-4">
             <div class="col-md-12">{% include "components/card/overview.html" %}</div>
         </div>
         <div class="col-md-8">
-            <div class="row gy-5">
+            <div class="row gy-3 gy-md-5">
                 {% include "components/card/reportcard.html" %}
             </div>
-        </div>
-        <div class="col-md-12 text-center mt-md-5">
-            <a href="/api/quit_report" class="text-dark">Return to Homepage</a>
         </div>
     </div>
 </div>
