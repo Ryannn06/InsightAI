@@ -1,52 +1,14 @@
 {% for res in openai_response %}
-<div class="col-sm-12">
-    <div class="card p-3 mb-4">
-        <div class="card-body" id="{{ res.topic | replace(' ', '-') }}">
-            <h4 class="text-dark text-capitalize mb-2">{{ res.topic }}</h4>
-            <p class="text-muted"><i>{{ res.insight }}</i></p>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <div id="chart_{{ loop.index0 }}" class="w-100" style="height: 250px;"></div>
-                    </div>
-                    {% if res.chart_type != 'table' %}
-                    <div class="col-12 mt-4">
-                        <div class="table-responsive" style="max-height: 250px; overflow-y: auto;">
-                            <table class="table table-sm table-hover border">
-                                <thead class="table-light">
-                                    <tr class="bg-violet">
-                                        {# Access keys from the first record of the result list #}
-                                        {% if res.result and res.result|length > 0 %}
-                                        {% for key in res.result[0].keys() %}
-                                        <th>{{ key }}</th>
-                                        {% endfor %}
-                                        {% endif %}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for row in res.result %}
-                                    <tr>
-                                        {% for value in row.values() %}
-                                        <td>
-                                            {# Formats numbers to 2 decimal places if they are floats #}
-                                            {% if value is number and value is not integer %}
-                                            {{ "%.2f"|format(value) }}
-                                            {% else %}
-                                            {{ value }}
-                                            {% endif %}
-                                        </td>
-                                        {% endfor %}
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    {% endif %}
-                </div>
+<div class="col-sm-12 pb-5 pb-md-5">
+    <div class="body" id="{{ res.topic | replace(' ', '-') }}">
+        <h6 class="text-uppercase text-secondary small mb-2">Analysis 0{{ loop.index }}</h6>
+        <h2 class="card-title text-white mb-4">{{ res.topic }}</h2>
+        <div class="col-12 mt-4">
+            <div class="card bg-black border-white rounded-0 mx-auto p-1">
+                <div id="chart_{{ loop.index0 }}" class="w-100" style="height: 350px;"></div>
             </div>
         </div>
+        <p class="text-secondary mt-4">{{ res.insight }}</p>
     </div>
 </div>
 {% endfor %}

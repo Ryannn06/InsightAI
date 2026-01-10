@@ -2,16 +2,14 @@
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
-
 {% block content %}
-<div class="block-content bg-dark">
-    <div class="row">
-        <div class="col-sm-6">
+<div class="container-fluid p-0 overflow-hidden m-0">
+    <div class="row g-0 bg-custom-black min-vh-100 d-flex align-items-center">
+        <div class="col-md-6 block-content-home">
             {% include "components/hero.html" %}
         </div>
-        <div class="col-sm-6">
-            
-        </div>
+
+        <div class="col-md-6 grid-violet d-none d-md-block p-0" style="height: 100vh;"></div>
     </div>
 </div>
 

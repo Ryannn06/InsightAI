@@ -1,14 +1,12 @@
-{% extends "base.html" %} {% block title %}Report{% endblock %} {% set
+{% extends "base.html" %} {% block title %}Insight-4o{% endblock %} {% set
 show_navbar = true %} {% block content %}
-<div class="block-content">
-    <div class="row gy-3 gx-5">
-        <div class="col-md-4">
-            <div class="col-md-12">{% include "components/card/overview.html" %}</div>
+<div class="block-content-report">
+    <div class="row gx-5">
+        <div class="col-md-4 mb-5">
+            {% include "components/card/overview.html" %}
         </div>
         <div class="col-md-8">
-            <div class="row gy-3 gy-md-5">
-                {% include "components/card/reportcard.html" %}
-            </div>
+            {% include "components/card/reportcard.html" %}
         </div>
     </div>
 </div>
@@ -125,9 +123,34 @@ show_navbar = true %} {% block content %}
             
             else {
                 // Core chart options (Bar, Line, Pie)
+                // Core chart options (Bar, Line, Pie)
                 const coreOptions = {
+                    backgroundColor: 'transparent',
+                    titleTextStyle: { color: '#FFFFFF', fontName: 'Inter', fontSize: 16 },
+                    
+                    // --- DARK MODE UPDATES ---
+                    legend: { 
+                        position: 'bottom', 
+                        textStyle: { color: '#FFFFFF' } 
+                    },
+                    hAxis: { 
+                        slantedText: true, 
+                        slantedTextAngle: 45,
+                        textStyle: { color: '#FFFFFF' },      // Labels color
+                        gridlines: { color: '#333333' },      // Dark gridlines
+                        baselineColor: '#555555'             // Bottom axis line
+                    },
+                    vAxis: { 
+                        minValue: 0, 
+                        format: 'short',
+                        textStyle: { color: '#FFFFFF' },      // Labels color
+                        gridlines: { color: '#333333' },      // Side gridlines
+                        baselineColor: '#555555'             // Left axis line
+                    },
+                    // -------------------------
+
                     colors: ['#6F42C1', '#007BFF', '#28A745'],
-                    height: 250,
+                    height: 350,
                     width: '100%',
                     chartArea: {
                         left: '15%',
@@ -136,10 +159,7 @@ show_navbar = true %} {% block content %}
                         bottom: 60,
                         width: '80%',
                         height: '70%'
-                    },
-                    hAxis: { slantedText: true, slantedTextAngle: 45 },
-                    vAxis: { minValue: 0, format: 'short' },
-                    legend: { position: 'bottom' }
+                    }
                 };
 
                 let chart;

@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<a href="#" "modal" data-bs-target="#staticBackdrop" data-bs-toggle="modal">
+<a href="#" "modal" data-bs-target="#staticBackdrop" data-bs-toggle="modal" class="text-decoration-underline">
     Dataset
 </a>
 
@@ -9,14 +9,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-dark fw-bold" id="staticBackdropLabel">Dataset Table</h1>
+                <h1 class="modal-title fs-5 text-violet fw-bold" id="staticBackdropLabel">Dataset Table</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 {% include "components/table/preview_table.html" %}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-custom" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

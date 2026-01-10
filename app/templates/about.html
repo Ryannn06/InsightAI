@@ -1,82 +1,70 @@
 {% extends "base.html" %}
 {% block title %}About{% endblock %}
 {% block content %}
+<div class="container-fluid p-0 overflow-hidden">
+    <div class="row bg-custom d-flex align-items-center min-vh-60">
+        <div class="col-md-6 block-content block-content-about p-5">
+            <h2 class="mb-3 text-light fw-bold text-uppercase tracking-wider">An AI-powered Platform</h2>
+            <h5 class="text-muted text-content lh-base">
+                Insight-4o leverages the GPT-4o architecture to decode complex datasets and generate insights in real-time.
+            </h5>
+            <div class="vector-line mt-4" style="width: 100px;"></div>
+        </div>
+        <div class="col-md-6 grid-violet"></div>
+    </div>
 
-<div>
-    <div class="row bg-custom d-flex align-items-center">
-        <div class="col-md-6 border-left block-content">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="mb-3 text-light">An AI-powered Platform</h2>
-                    <h5 class="text-muted text-content">
-                        InsightAI uses GPT-4o model to support analyze structured datasets and generate meaningful insights.
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 grid-violet">
-            
+    <div class="row bg-custom-black d-flex align-items-center min-vh-60">
+        <div class="col-md-6 grid-black order-2 order-md-1"></div>
+        <div class="col-md-6 block-content block-content-about p-5 order-1 order-md-2">
+            <h2 class="mb-3 text-light fw-bold text-uppercase tracking-wider">Why it Matters</h2>
+            <h5 class="text-muted text-content lh-base">
+                Computational efficiency meets human intuition. We turn raw variables into actionable insights in seconds.
+            </h5>
+            <div class="vector-line mt-4" style="width: 100px;"></div>
         </div>
     </div>
-    <div class="row bg-custom-black d-flex align-items-center">
-        <div class="col-md-6 grid-black border-right">
-        
-        </div>
-        <div class="col-md-6 block-content">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="mb-3 text-light">Why it Matters</h2>
-                    <h5 class="text-muted text-content">
-                        It makes smart AI-driven decisions faster, turning raw data into actionable insights in seconds.
-                    </h5>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <div class="row bg-custom">
-        <h2 class="text-light py-3">Workflow</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-3 border-right border-bottom">
-            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
-                <div>
-                    <h6 class="text-light fw-bold mb-3">Data Preparation</h6>
-                    <p class="text-muted">Your data is automatically cleaned and formatted.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 border-right border-bottom">
-            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
-                <div>
-                    <h6 class="text-light fw-bold mb-3">Topic Suggestions</h6>
-                    <p class="text-muted">InsightAI looks at your data and recommends relevant topics to investigate.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 border-right border-bottom">
-            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
-                <div>
-                    <h6 class="text-light fw-bold mb-3">Implementation</h6>
-                    <p class="text-muted">Suggested topics are used to run tasks that produce results.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 border-bottom">
-            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
-                <div>
-                    <h6 class="text-light fw-bold mb-3">Generated Insights</h6>
-                    <p class="text-muted">InsightAI interprets the results and generates meaningful insights.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center p-3 bg-light">
-        <div class="col-md-8 text-center">
-            <h2 class="text-dark">Thank you for visiting Insight AI.</h2>
-        </div>
+
+    <div class="row bg-custom px-5 pt-5">
+        <h2 class="text-light fw-bold text-uppercase tracking-wider">System Workflow</h2>
     </div>
     
-</div>
+    <div class="row bg-custom px-5 pb-5">
+        <div class="col-md-3 border-right-custom border-bottom-custom p-4">
+            <div class="card-workflow">
+                <span class="text-violet fw-bold small">01</span>
+                <h6 class="text-light fw-bold mt-2 mb-3 text-uppercase">Data Preparation</h6>
+                <p class="text-muted small">Automated cleaning and formatting of uploaded data sources.</p>
+            </div>
+        </div>
+        <div class="col-md-3 border-right-custom border-bottom-custom p-4">
+            <div class="card-workflow">
+                <span class="text-violet fw-bold small">02</span>
+                <h6 class="text-light fw-bold mt-2 mb-3 text-uppercase">Topic Mining</h6>
+                <p class="text-muted small">Insight-4o scans metadata to propose analytical topics.</p>
+            </div>
+        </div>
+        <div class="col-md-3 border-right-custom border-bottom-custom p-4">
+            <div class="card-workflow">
+                <span class="text-violet fw-bold small">03</span>
+                <h6 class="text-light fw-bold mt-2 mb-3 text-uppercase">Execution</h6>
+                <p class="text-muted small">Processing of topic tasks to yield structured results.</p>
+            </div>
+        </div>
+        <div class="col-md-3 border-bottom-custom p-4">
+            <div class="card-workflow">
+                <span class="text-violet fw-bold small">04</span>
+                <h6 class="text-light fw-bold mt-2 mb-3 text-uppercase">Synthesis</h6>
+                <p class="text-muted small">Final logic layer interprets results into narrative-driven insights.</p>
+            </div>
+        </div>
+    </div>
 
+    <div class="row d-flex justify-content-center py-5" style="background-color: #000; border-top: 1px solid #5B21B6;">
+        <div class="col-md-8 text-center">
+            <h2 class="text-light fw-bold">End of Transmission.</h2>
+            <p class="text-muted">Thank you for visiting Insight-4o.</p>
+            <a href="/" class="btn-secondary mt-3">Return to Home</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

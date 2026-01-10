@@ -47,123 +47,71 @@ h5 {
     color: #5B21B6 !important;
 }
 
+/* NAVBAR COMPONENT */
+/* --- 1. NAVBAR STRUCTURE & ALIGNMENT --- */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: solid 1px #a3a3a3;
-    padding: 0.5rem 5rem;
+    padding: 0.5rem 0; 
+    background-color: #0A0A0A;
 }
 
-.btn-primary {
+/* These ensure the 5rem alignment matches your about page */
+.nav-align-left { padding-left: 5rem !important; }
+.nav-align-right { padding-right: 5rem !important; }
+
+/* --- 2. THE NAV-LINK ANIMATION (RE-ADDED) --- */
+.navbar-nav .nav-link {
     position: relative;
     overflow: hidden;
-    /* Critical: hides the sliding layer when it's "outside" */
-    border: solid 1px #121212;
-    /* White border to stand out on black */
-    background-color: #ffffff;
-    /* Start dark */
-    color: #121212;
-    padding: 1rem 1.5rem;
-    border-radius: 0px;
-    z-index: 1;
-    /* Ensures text stays above the slide */
+    color: #ffffff !important;
+    padding: 0.6rem 1.2rem !important;
+    border: 1px solid transparent;
     transition: color 0.4s ease;
-    /* Faster text color swap */
-    display: inline-block;
-    cursor: pointer;
+    z-index: 1;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
 
-.btn-secondary {
-    position: relative;
-    overflow: hidden;
-    /* Critical: hides the sliding layer when it's "outside" */
-    border: solid 1px #ffffff;
-    /* White border to stand out on black */
-    background-color: #121212;
-    /* Start dark */
-    color: #ffffff;
-    padding: 1rem 1.5rem;
-    border-radius: 0px;
-    z-index: 1;
-    /* Ensures text stays above the slide */
-    transition: color 0.4s ease;
-    /* Faster text color swap */
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* The sliding layer */
-.btn-primary::before,
-.btn-secondary::before {
+/* The sliding layer logic */
+.navbar-nav .nav-link::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    /* Start completely off-side to the left */
+    left: -100%; /* Start off-screen to the left */
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
-    /* The color that slides in */
+    background-color: #ffffff; /* Slides in white */
     transition: left 0.4s cubic-bezier(0.7, 0, 0.3, 1);
     z-index: -1;
-    /* Places it behind the text */
 }
 
-/* Hover States */
-.btn-primary:hover,
-.btn-secondary:hover {
-    color: #121212;
-    /* Text turns dark when background turns white */
+/* Hover state: text swaps to black as white slides in */
+.navbar-nav .nav-link:hover {
+    color: #0A0A0A !important;
 }
 
-.btn-primary:hover::before,
-.btn-secondary:hover::before {
+.navbar-nav .nav-link:hover::before {
     left: 0;
-    /* Slide in to cover the button */
 }
 
-.nav-link {
-    position: relative;
-    color: #ffffff;
-    /* initial text color */
-    text-decoration: none;
-    overflow: hidden;
-    /* Ensures text stays above the slide */
-    transition: color 0.4s ease;
-    /* Faster text color swap */
-    display: inline-block;
-    cursor: pointer;
+/* --- 3. SPECIAL VIOLET SLIDE FOR EXIT --- */
+.btn-exit-slide {
+    border: 1px solid #5B21B6 !important;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    left: -100%;
-    /* start off to the left */
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    /* the hover color */
-    transition: all 0.3s ease;
-    z-index: 0;
+.btn-exit-slide::before {
+    background-color: #5B21B6 !important; /* Slides in violet */
 }
 
-.nav-link:hover::after {
-    left: 0;
-    /* slide over the text */
+.btn-exit-slide:hover {
+    color: #ffffff !important; /* Keep text white on violet */
 }
 
-.nav-link span {
-    position: relative;
-    z-index: 1;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover span {
-    color: #121212;
-    /* optional: text color if you want it to invert */
+/* --- 4. RESPONSIVE ALIGNMENT --- */
+@media (max-width: 768px) {
+    .nav-align-left { padding-left: 1.5rem !important; }
+    .nav-align-right { padding-right: 1.5rem !important; padding-left: 1.5rem !important; }
 }
 
 .dataTables_wrapper table  {
@@ -176,7 +124,7 @@ h5 {
 }
 
 .bg-custom-black {
-    background-color: #121212 !important;
+    background-color: #0A0A0A !important;
     border-bottom: solid 1px #a3a3a3;
 }
 
@@ -184,82 +132,125 @@ h5 {
     padding: 2.5rem 5rem 2.5rem 5rem
 }
 
+/* HOME.HTML */
+.block-content-home {
+    padding-left: 4.5rem !important;
+    padding-right: 4.5rem !important;
+}
+
+.text-violet { color: #5B21B6; }
+.bg-custom-black { background-color: #0A0A0A; }
+
+/* 2. YOUR ORIGINAL BUTTON CODE (UNTOUCHED) */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    border: solid 1px #0A0A0A;
+    background-color: #ffffff;
+    color: #0A0A0A;
+    padding: 1rem 1.5rem;
+    border-radius: 0px;
+    z-index: 1;
+    transition: color 0.4s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    position: relative;
+    overflow: hidden;
+    border: solid 1px #ffffff;
+    background-color: #0A0A0A;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 0px;
+    z-index: 1;
+    transition: color 0.4s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Slides in white */
+    transition: left 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    z-index: -1;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    color: #0A0A0A;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    left: 0;
+}
+
+/* 3. Grid Styling (From your About Page) */
 .grid-violet {
     background-color: #5B21B6;
-    background-image:
-        /* minor grid */
-        linear-gradient(to right, #a3a3a3 1px, transparent 1px),
-        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px),
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
 
-        /* major grid */
-        linear-gradient(to right, #a3a3a3 1px, transparent 1px),
-        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px);
-    background-size:
-        40px 40px,
-        40px 40px,
-        160px 160px,
-        160px 160px;
+/* Mobile Alignment Guard */
+@media (max-width: 768px) {
+    .block-content-home {
+        padding: 1.5rem !important;
+    }
+}
+
+/* ABOUT.HTML */
+/* Applying the 5rem horizontal padding */
+.block-content-about {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+}
+
+/* Grids */
+.grid-violet {
+    background-color: #5B21B6;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
     height: 60vh;
 }
 
 .grid-black {
-    background-color: #121212;
-    background-image:
-        /* minor grid */
-        linear-gradient(to left, #a3a3a3 1px, transparent 1px),
-        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px),
-
-        /* major grid */
-        linear-gradient(to left, #a3a3a3 1px, transparent 1px),
-        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px);
-    background-size:
-        40px 40px,
-        40px 40px,
-        160px 160px,
-        160px 160px;
+    background-color: #0A0A0A;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
     height: 60vh;
 }
 
-.border-left {
-    border-left: solid 1px #a3a3a3;
-}
+.border-right-custom { border-right: 1px solid #333; }
+.border-bottom-custom { border-bottom: 1px solid #333; }
+.text-violet { color: #5B21B6; }
+.tracking-wider { letter-spacing: 2px; }
+.min-vh-60 { min-height: 60vh; }
+.bg-custom { background-color: #0A0A0A; }
+.bg-custom-black { background-color: #0A0A0A; }
 
-.border-right {
-    border-right: solid 1px #a3a3a3;
-}
+.card-workflow { transition: transform 0.3s ease; }
+.card-workflow:hover { transform: translateY(-5px); }
 
-.border-bottom {
-    border-bottom: solid 1px #a3a3a3;
-}
-
-
-.hero-img {
-    max-width: 500px;
-    /* limits image width on large screens */
-    width: 70%;
-    /* responsive scaling */
-    height: auto;
-    /* maintain aspect ratio */
-}
-
-.thumb-img {
-    max-width: 50px;
-    /* limits image width on large screens */
-    width: 100%;
-    /* responsive scaling */
-    height: auto;
-    /* maintain aspect ratio */
-}
-
-@media screen and (max-width: 768px) {
-    .block-content {
-        padding: 3rem 1rem 3rem 1rem;
-    }
-    .navbar {
-        padding: 0.5rem 1rem
-    }
-    .grid-black, .grid-violet {
-        display: none;
+/* Ensure 5rem doesn't break mobile */
+@media (max-width: 768px) {
+    .block-content-about {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
     }
 }
 
@@ -291,4 +282,83 @@ h5 {
     border: none;
     outline: none;
     border-radius: 4px;
+}
+
+/*Report.HTML*/
+
+/* Accordion */
+
+/* Main Container & Item */
+.accordion-item {
+    background-color: #0A0A0A !important;
+    border: 1px solid #333 !important; /* Subtle grid-style border */
+    border-radius: 0px !important;
+}
+
+/* Accordion Header/Button */
+.accordion-button {
+    background-color: #0A0A0A !important;
+    color: #ffffff !important;
+    border-radius: 0px !important;
+    box-shadow: none !important; /* Removes Bootstrap blue glow */
+    padding: 1.25rem;
+}
+
+/* When the Accordion is Open */
+.accordion-button:not(.collapsed) {
+    background-color: #5B21B6 !important; /* Violet when open */
+    color: #ffffff !important;
+}
+
+/* Custom Arrow Color */
+.accordion-button::after {
+    filter: invert(1); /* Makes the arrow white */
+}
+
+/* Body Styling */
+.accordion-body {
+    background-color: #0A0A0A;
+    color: #ffffff;
+    border-top: 1px solid #333;
+}
+
+/* Text Colors inside Accordion */
+.accordion-body h6 {
+    color: #5B21B6 !important; /* Violet Subtitles */
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.accordion-body p, .accordion-body li {
+    color: #cccccc !important; /* Muted white for readability */
+}
+
+/* Links (Table of Contents) */
+.accordion-body a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.accordion-body a:hover {
+    color: #5B21B6;
+}
+
+/* Custom Violet Badges */
+.bg-violet {
+    background-color: #5B21B6 !important;
+    border-radius: 0px;
+    font-weight: 500;
+    padding: 0.4em 0.8em;
+}
+
+.block-content-report {
+    padding: 4.5rem  !important;
+}
+
+@media (max-width: 768px) {
+    .block-content-report {
+        padding: 3rem 1rem !important;
+    }
 }
