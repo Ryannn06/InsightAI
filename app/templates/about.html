@@ -2,95 +2,78 @@
 {% block title %}About{% endblock %}
 {% block content %}
 
-<div class="block-content">
-    <div class="row d-flex align-items-center mb-3 mb-md-5">
-        <div class="col-md-6">
-            <h1 class="mb-3 text-dark fw-bold">About Insight AI</h1>
-            <p class="text-muted">
-                Insight AI is a data analysis and insight-generation platform designed to process structured datasets and produce clear
-                analytical summaries.
-                It uses OpenAI’s GPT-4o model to assist in interpreting data structures and generating meaningful
-                analytical outputs.
-            </p>
+<div>
+    <div class="row bg-custom d-flex align-items-center">
+        <div class="col-md-6 border-left block-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mb-3 text-light">An AI-powered Platform</h2>
+                    <h5 class="text-muted text-content">
+                        InsightAI uses GPT-4o model to support analyze structured datasets and generate meaningful insights.
+                    </h5>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <img class="img-fluid w-100 about-img" style="height: 50vh; width: 100%;" src="{{ url_for('static', path='images/undraw_zoom-in_miok.svg') }}" alt="Hero Image">
+        <div class="col-md-6 grid-violet">
+            
         </div>
     </div>
-    <div class="row d-flex align-items-center mb-3 mb-md-5">
-        <div class="col-md-6">
-            <img class="img-fluid about-img" style="height: 50vh; width: 100%;" src="{{ url_for('static', path='images/undraw_artificial-intelligence_43qa.svg') }}" alt="Hero Image">
+    <div class="row bg-custom-black d-flex align-items-center">
+        <div class="col-md-6 grid-black border-right">
+        
         </div>
-        <div class="col-md-6">
-            <h2 class="fw-bold text-dark mb-3">How It Works</h2>
-            <p class="text-muted">
-                Insight AI examines the structure and contents of a dataset to identify 
-                relevant analytical operations. It uses OpenAI’s
-                GPT-4o model to support insight generation and organizes results into clear, 
-                structured summaries.
-            </p>
+        <div class="col-md-6 block-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mb-3 text-light">Why it Matters</h2>
+                    <h5 class="text-muted text-content">
+                        It makes smart AI-driven decisions faster, turning raw data into actionable insights in seconds.
+                    </h5>
+                </div>
+            </div>
         </div>
+        
     </div>
-    <div class="row mb-3 mb-md-5">
-        <h1 class="fw-bold mb-3 mb-md-3 text-dark text-center text-sm-start">Workflow</h1>
-        <div class="col-md-12">
-            <div class="row gy-5">
-                <div class="col-md-12">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-6">
-                            <h3 class="fw-bold text-dark mb-3">1. Data Preparation</h3>
-                            <p class="text-muted">Data is uploaded, validated, and cleaned for analysis.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{ url_for('static', path='images/undraw_success_288d.svg') }}" class="img-fluid" alt="..."
-                                style="height: 35vh; width: 100%;">
-                        </div>
-                    </div>
+    <div class="row bg-custom">
+        <h2 class="text-light py-3">Workflow</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-3 border-right border-bottom">
+            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
+                <div>
+                    <h6 class="text-light fw-bold mb-3">Data Preparation</h6>
+                    <p class="text-muted">Your data is automatically cleaned and formatted.</p>
                 </div>
-                <div class="col-md-12">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-6">
-                            <h3 class="fw-bold text-dark mb-3">2. AI Topic Suggestion</h3>
-                            <p class="text-muted">OpenAI’s GPT-4o model suggests topic instructions based on dataset's metadata.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{ url_for('static', path='images/undraw_data-analysis_b7cp.svg') }}" class="img-fluid" alt="..."
-                                style="height: 35vh; width: 100%;">
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="col-md-3 border-right border-bottom">
+            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
+                <div>
+                    <h6 class="text-light fw-bold mb-3">Topic Suggestions</h6>
+                    <p class="text-muted">InsightAI looks at your data and recommends relevant topics to investigate.</p>
                 </div>
-                <div class="col-md-12">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-6">
-                            <h3 class="fw-bold text-dark mb-3">3. Instruction Execution</h3>
-                            <p class="text-muted">AI's suggested topic instructions are implemented using predefined code to yield results.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{ url_for('static', path='images/undraw_github-profile_abde.svg') }}" class="img-fluid" alt="..."
-                                style="height: 35vh; width: 100%;">
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="col-md-3 border-right border-bottom">
+            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
+                <div>
+                    <h6 class="text-light fw-bold mb-3">Implementation</h6>
+                    <p class="text-muted">Suggested topics are used to run tasks that produce results.</p>
                 </div>
-                <div class="col-md-12">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-6">
-                            <h3 class="fw-bold text-dark mb-3">4. AI Insight Generation</h3>
-                            <p class="text-muted">OpenAI’s GPT-4o model interprets the results and produces structured insights.</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="{{ url_for('static', path='images/undraw_app-benchmarks_ls0m.svg') }}" class="img-fluid" alt="..."
-                                style="height: 35vh; width: 100%;">
-                        </div>
-                    </div>
+            </div>
+        </div>
+        <div class="col-md-3 border-bottom">
+            <div class="card-workflow d-flex align-items-center px-1 px-md-1 py-3 py-md-5">
+                <div>
+                    <h6 class="text-light fw-bold mb-3">Generated Insights</h6>
+                    <p class="text-muted">InsightAI interprets the results and generates meaningful insights.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mb-3 mb-md-5">
-        <div class="row d-flex justify-content-center mt-3 mt-md-5">
-            <div class="col-md-8 text-center">
-                <h1 class="fw-bold text-dark">Thank you for visiting Insight AI.</h1>
-            </div>
+    <div class="row d-flex justify-content-center p-3 bg-light">
+        <div class="col-md-8 text-center">
+            <h2 class="text-dark">Thank you for visiting Insight AI.</h2>
         </div>
     </div>
     

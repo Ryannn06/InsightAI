@@ -10,9 +10,21 @@ body {
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 4.5rem;
     line-height: 1.1;
     letter-spacing: -0.025em;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+h5 {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .bg-dark {
@@ -29,6 +41,10 @@ h1 {
 
 .text-muted {
     color: #D6D6D6 !important;
+}
+
+.text-violet {
+    color: #5B21B6 !important;
 }
 
 .navbar {
@@ -107,43 +123,115 @@ h1 {
     /* Slide in to cover the button */
 }
 
+.nav-link {
+    position: relative;
+    color: #ffffff;
+    /* initial text color */
+    text-decoration: none;
+    overflow: hidden;
+    /* Ensures text stays above the slide */
+    transition: color 0.4s ease;
+    /* Faster text color swap */
+    display: inline-block;
+    cursor: pointer;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    /* start off to the left */
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    /* the hover color */
+    transition: all 0.3s ease;
+    z-index: 0;
+}
+
+.nav-link:hover::after {
+    left: 0;
+    /* slide over the text */
+}
+
+.nav-link span {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover span {
+    color: #121212;
+    /* optional: text color if you want it to invert */
+}
+
 .dataTables_wrapper table  {
     font-size: 3rem !important;
 }
 
-
-
-.text-secondary-light {
-    color: #757575 !important;
+.bg-custom {
+    background-color: #5B21B6 !important;
+    border-bottom: solid 1px #a3a3a3;
 }
 
-.text-secondary-dark {  
-    color: #212529 !important;
+.bg-custom-black {
+    background-color: #121212 !important;
+    border-bottom: solid 1px #a3a3a3;
 }
-
-.text-dark-muted {
-    color: #6C757D !important;
-}
-
-.bg-custom-light {
-    background-color: #F8F9FA;
-}
-
-
 
 .block-content {
     padding: 2.5rem 5rem 2.5rem 5rem
 }
 
+.grid-violet {
+    background-color: #5B21B6;
+    background-image:
+        /* minor grid */
+        linear-gradient(to right, #a3a3a3 1px, transparent 1px),
+        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px),
 
-.violet-input {
-    border: 1px solid #0A0A0A;
+        /* major grid */
+        linear-gradient(to right, #a3a3a3 1px, transparent 1px),
+        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px);
+    background-size:
+        40px 40px,
+        40px 40px,
+        160px 160px,
+        160px 160px;
+    height: 60vh;
 }
 
-.violet-input:focus {
-    border-color: #0A0A0A;
-    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+.grid-black {
+    background-color: #121212;
+    background-image:
+        /* minor grid */
+        linear-gradient(to left, #a3a3a3 1px, transparent 1px),
+        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px),
+
+        /* major grid */
+        linear-gradient(to left, #a3a3a3 1px, transparent 1px),
+        linear-gradient(to bottom, #a3a3a3 1px, transparent 1px);
+    background-size:
+        40px 40px,
+        40px 40px,
+        160px 160px,
+        160px 160px;
+    height: 60vh;
 }
+
+.border-left {
+    border-left: solid 1px #a3a3a3;
+}
+
+.border-right {
+    border-right: solid 1px #a3a3a3;
+}
+
+.border-bottom {
+    border-bottom: solid 1px #a3a3a3;
+}
+
 
 .hero-img {
     max-width: 500px;
@@ -165,15 +253,12 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .block-content {
-        padding: 1.5rem 1rem 1.5rem 1rem;
+        padding: 3rem 1rem 3rem 1rem;
     }
-    .block-content-nav {
-        padding: .25rem 2rem .25rem 2rem
+    .navbar {
+        padding: 0.5rem 1rem
     }
-    .hero-img-col {
-        display: none;
-    }
-    .about-img {
+    .grid-black, .grid-violet {
         display: none;
     }
 }
