@@ -81,26 +81,26 @@
     <script>
         // Create an instance of Notyf
       const notyf = new Notyf({
-        duration: 7000,
-        dismissable: true,
-        types: [
-          {
-            type: 'success',
-            background: '#6F42C1', // violet for success
-            icon: false
+          duration: 10000,
+          dismissible: true,
+          ripple: true,
+          position: {
+            x: 'right',
+            y: 'bottom',
           },
-          {
-            type: 'error',
-            background: '#DC3545', // red for error
-            icon: false
-          },
-          {
-            type: 'info',
-            background: '#212529', // dark for info
-            icon: false
-          }
-        ]
-      });
+          
+          types: [
+            {
+              type: 'warning',
+              background: 'orange'
+            },
+            {
+              type: 'error',
+              background: 'indianred'
+              
+            }
+          ]
+        });
 
       {% if error %}
         notyf.error('{{ error }}')

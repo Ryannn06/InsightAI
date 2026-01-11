@@ -24,12 +24,12 @@ templates = Jinja2Templates(directory="app/templates")
 
 ERROR_MESSAGES = {
     "analysis_failed": "Something went wrong while executing the analysis. Please try again.",
-    "invalid_dataset": "Invalid file structure or dataset size exceeds system limits (25000 rows).",
+    "invalid_dataset": "Invalid file structure or size exceeds system limits.",
     "invalid_format": "CSV or Excel files are the only formats allowed.",
     "session_expired": "Your session has expired. Please upload your file again.",
     "not_found": "Page not found (404).",
     "forbidden":"You don’t have permission to access this (403).",
-    "failed_read":"Failed to read the file.async"
+    "failed_read":"Failed to read the file."
 }
 
 @router.get('/', response_class=HTMLResponse)
